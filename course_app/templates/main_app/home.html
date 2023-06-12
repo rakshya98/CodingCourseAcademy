@@ -1,0 +1,30 @@
+
+{% extends 'core/base.html' %}
+
+{% block title %} Home {% endblock title %}
+{% block content %}
+
+{% if courses %}
+{% for course in courses %}
+<div class="container">
+<p> <b class="text-success">{{course.title}}</b></p>
+<p> {{course.description}}</p>
+<p> {{course.price}}</p>
+<p> {{course.duration}}</p>
+<a href="{%url 'edit' id=course.id %}" >Edit</a>
+<a href="{% url 'delete' id=course.id %}" class="text-danger">Delete </a>
+<hr>
+</div>
+{% endfor %}
+{% else %}
+<h2> No Courses Available </h2>
+{% endif %}
+<div class="container">
+<a href="{% url 'course' %}" class="btn btn-primary">Add Course</a>
+
+{% if courses %}
+<a href="{% url 'delete_all' %}" class="btn btn-primary"> Delete All </a>
+{% endif %}
+</div>
+
+{% endblock content %}

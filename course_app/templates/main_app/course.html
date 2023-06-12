@@ -1,0 +1,32 @@
+{% extends 'core/base.html'%}
+
+{%block title%} Course {%endblock title%}
+
+{% block content %}
+<div class="container">
+<form method="POST" >
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title">
+    
+    </div>
+    <div class="mb-3">
+        <label for="desc" class="form-label">Description</label>
+        <input type="text" class="form-control" id="desc" name="desc">
+      
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="text" class="form-control" id="price" name="price">
+      
+      </div>
+      <div class="mb-3">
+        <label for="duration" class="form-label">Duration</label>
+        <input type="text" class="form-control" id="duration" name="duration">
+      
+      </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock content %}
